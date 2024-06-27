@@ -1,19 +1,24 @@
 package com.kodilla.bank.homework;
-import java.util.ArrayList;
-import java.util.List;
-public class Bank { //wygenerowane przez GPT
-    private List<CashMachine> cashMachines;
+
+public class Bank {
+    private CashMachine[] cashMachines;
+    private int numberOfCashMachines;
 
     public Bank() {
-        this.cashMachines = new ArrayList<>();
+        this.cashMachines = new CashMachine[0];
+        this.numberOfCashMachines = 0;
     }
 
     public void addCashMachine(CashMachine cashMachine) {
-        cashMachines.add(cashMachine);
+        CashMachine[] newCashMachines = new CashMachine[numberOfCashMachines + 1];
+        System.arraycopy(cashMachines, 0, newCashMachines, 0, numberOfCashMachines);
+        newCashMachines[numberOfCashMachines] = cashMachine;
+        cashMachines = newCashMachines;
+        numberOfCashMachines++;
     }
 
-    public int getTotalBalance() {
-        int totalBalance = 0;
+    public double getTotalBalance() {
+        double totalBalance = 0;
         for (CashMachine cashMachine : cashMachines) {
             totalBalance += cashMachine.getBalance();
         }
@@ -23,7 +28,7 @@ public class Bank { //wygenerowane przez GPT
     public int getWithdrawTransactionCount() {
         int count = 0;
         for (CashMachine cashMachine : cashMachines) {
-            for (int transaction : cashMachine.getTransactions()) {
+            for (double transaction : cashMachine.getTransactions()) {
                 if (transaction < 0) {
                     count++;
                 }
@@ -35,7 +40,7 @@ public class Bank { //wygenerowane przez GPT
     public int getDepositTransactionCount() {
         int count = 0;
         for (CashMachine cashMachine : cashMachines) {
-            for (int transaction : cashMachine.getTransactions()) {
+            for (double transaction : cashMachine.getTransactions()) {
                 if (transaction > 0) {
                     count++;
                 }
@@ -45,30 +50,45 @@ public class Bank { //wygenerowane przez GPT
     }
 
     public double getAverageWithdrawal() {
-        int sum = 0;
+        double sum = 0;
         int count = 0;
         for (CashMachine cashMachine : cashMachines) {
-            for (int transaction : cashMachine.getTransactions()) {
+            for (double transaction : cashMachine.getTransactions()) {
                 if (transaction < 0) {
                     sum += transaction;
                     count++;
                 }
             }
         }
-        return count == 0 ? 0 : (double) sum / count;
+        return count == 0 ? 0 : sum / count;
     }
 
     public double getAverageDeposit() {
-        int sum = 0;
+        double sum = 0;
         int count = 0;
         for (CashMachine cashMachine : cashMachines) {
-            for (int transaction : cashMachine.getTransactions()) {
+            for (double transaction : cashMachine.getTransactions()) {
                 if (transaction > 0) {
                     sum += transaction;
                     count++;
                 }
             }
         }
-        return count == 0 ? 0 : (double) sum / count;
+        return count == 0 ? 0 : sum / count;
     }
+
 }
+
+/*
+
+
+
+
+
+
+
+
+
+}
+ */
+
