@@ -1,17 +1,15 @@
-public class Book { //wygenerowane przez Chata GPT
+public class Book {
     // Prywatne pola dla autora i tytułu
     private String author;
     private String title;
 
-    // Prywatny konstruktor, aby uniemożliwić bezpośrednie tworzenie obiektów klasy Book
-    private Book(String author, String title) {
-        this.author = author;
-        this.title = title;
-    }
-
     // Statyczna metoda of do tworzenia obiektów klasy Book
     public static Book of(String author, String title) {
-        return new Book(author, title);
+        Book book = new Book();
+        book.title = title;
+        book.author = author;
+
+        return book;
     }
 
     // Metody dostępowe do pól author i title
