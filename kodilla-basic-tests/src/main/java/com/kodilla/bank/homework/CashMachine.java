@@ -9,7 +9,7 @@ public class CashMachine {
         this.numberOfTransactions = 0;
     }
 
-    public void addTransaction(double value) { //chatgpt
+    public void addTransaction(double value) {
         double[] newTransactions = new double[numberOfTransactions + 1];
         System.arraycopy(transactions, 0, newTransactions, 0, numberOfTransactions);
         newTransactions[numberOfTransactions] = value;
@@ -17,7 +17,7 @@ public class CashMachine {
         numberOfTransactions++;
     }
 
-    public double getBalance() { //chatgpt
+    public double getBalance() {
         double balance = 0;
         for (double transaction : transactions) {
             balance += transaction;

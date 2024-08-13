@@ -30,4 +30,5 @@ class BookController {
     public void deleteBook(@RequestBody BookDto bookDto) {
         bookService.removeBook(bookDto);
     }
+
 }

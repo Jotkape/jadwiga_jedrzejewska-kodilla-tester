@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class RandomNumbers { //Zadanie wygenerowane przez chataGPT
+public class RandomNumbers {
         private int[] numbers;  // Tablica przechowująca wylosowane liczby
         private int count;      // Liczba wylosowanych liczb
         private Random random;  // Obiekt do generowania liczb losowych
@@ -65,3 +65,7 @@ public class RandomNumbers { //Zadanie wygenerowane przez chataGPT
             System.out.println("Najmniejsza wylosowana wartość: " + randomNumbers.getMinValue());
         }
     }
+/* jak wywołać sprawdzenie wyświetlania liczb w public void generateNumbers()
+czy nie moge używać tych samych zmiennych w róznych klasach? bo na czerwono się podświetlaja?
+dlaczego w konstruktorze musz uzywać nazwy klasy? I przy generowaniu obiektu również?
+ */

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ColorPicker { //wygenerowane przez chataGPT
+public class ColorPicker {
 
     // Metoda główna
     public static void main(String[] args) {
